@@ -12,8 +12,8 @@ function AdminRegister() {
         e.preventDefault()
         try{
 
-       
-        const sendinfo=await axios.post("http://localhost:8080/studentporatl/portal/saverecruter",reginfo)
+          
+        const sendinfo=await axios.post(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}saverecruter`:`${import.meta.env.VITE_BACKEND_URL}saverecruter`,reginfo)
         if(sendinfo.status==201)
         {
             navigate("/admin/login")

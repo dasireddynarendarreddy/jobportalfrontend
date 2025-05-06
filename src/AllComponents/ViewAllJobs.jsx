@@ -10,7 +10,8 @@ function ViewAllJobs() {
     const navigate=useNavigate()
     const DeleteJob=async(id,rid)=>{
       console.log(id,rid)
-      const removejob=await axios.delete(`http://localhost:8080/studentporatl/portal/removejob?id=${id}&rid=${rid}`)
+      
+      const removejob=await axios.delete(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}removejob?id=${id}&rid=${rid}`:`${import.meta.env.VITE_BACKEND_URL}removejob?id=${id}&rid=${rid}`)
       console.log(removejob)
       if(removejob.status==200)
       {

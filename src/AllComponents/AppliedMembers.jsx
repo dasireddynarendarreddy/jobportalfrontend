@@ -20,7 +20,8 @@ const AppliedMembers = () => {
     const{id,student_id}=data;
     console.log(data,stat)
     console.log(id,student_id)
-    const update=await axios.patch("http://localhost:8080/studentporatl/student/update-status",{id,student_id,status:stat})
+    
+    const update=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}student/update-status`:`${import.meta.env.VITE_BACKEND_URL}student/update-status`,{id,student_id,status:stat})
     console.log(update.data)
     
   }

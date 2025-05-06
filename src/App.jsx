@@ -24,18 +24,19 @@ function App() {
   const[recruterjobs,setRecruterPostedJobs]=useState([]);
   const[studentinfo,setStudentInfo]=useState(localStorage.getItem("studentinfo")?JSON.parse(localStorage.getItem("studentinfo")):null)
   const navigate=useNavigate()
+    //import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}/get-recruter?mail=${loginfo.mail}`:`${import.meta.env.VITE_BACKEND_URL}/get-recruter?mail=${loginfo.mail}`)
   const fetchAllJobsHave=async()=>{
-    const getalljobs=await axios.get('http://localhost:8080/studentporatl/portal/getAllJobs')
+    const getalljobs=await axios.get(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}getAllJobs`:`${import.meta.env.VITE_BACKEND_URL}getAllJobs`)
     console.log("all jobs are",getalljobs)
     setJobsPosted(getalljobs.data)
   }
   const fetchJobsPosted=async(id)=>{
-    const postedjobs=await axios.get(`http://localhost:8080/studentporatl/portal/alljobs?recruterid=${id}`)
+    const postedjobs=await axios.get(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}alljobs?recruterid=${id}`:`${import.meta.env.VITE_BACKEND_URL}alljobs?recruterid=${id}`)
     console.log("the jobs posted by recruter are",postedjobs)
     setRecruterPostedJobs(postedjobs.data)
   }
   const fetchAppliedJobs=async()=>{
-    const sendinfo=await axios.get(`http://localhost:8080/studentporatl/portal/verify-student?mail=${studentinfo.mailid}`)
+    const sendinfo=await axios.get(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}verify-student?mail=${studentinfo.mailid}`:`${import.meta.env.VITE_BACKEND_URL_PROD}verify-student?mail=${studentinfo.mailid}`)
  console.log(sendinfo)
  if(sendinfo.status==200)
   {

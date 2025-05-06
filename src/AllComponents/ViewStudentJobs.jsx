@@ -35,7 +35,8 @@ function ViewStudentJobs() {
       else{
         console.log("with draw mode",job)
         let mailid=studentinfo.mailid?studentinfo.mailid:JSON.parse(localStorage.getItem("studentinfo")).mailid
-        const info=await axios.patch(`http://localhost:8080/studentporatl/student/with-draw-application/${mailid}/${job.id}`)
+     
+        const info=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}with-draw-application/${mailid}/${job.id}`:`${import.meta.env.VITE_BACKEND_URL}with-draw-application/${mailid}/${job.id}`)
         console.log(info)
        fetchAppliedJobs()
       }

@@ -12,7 +12,7 @@ function AdminLogin() {
     const recruterLogIn=async(e)=>{
         e.preventDefault()
         try{
-        const sendinfo=await axios.get(`http://localhost:8080/studentporatl/portal/get-recruter?mail=${loginfo.mail}`)
+        const sendinfo=await axios.get(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}/get-recruter?mail=${loginfo.mail}`:`${import.meta.env.VITE_BACKEND_URL}/get-recruter?mail=${loginfo.mail}`)
         console.log("recruter info",sendinfo.data)
          localStorage.setItem("info",JSON.stringify(sendinfo.data))
          setRecruterInfo(sendinfo.data)

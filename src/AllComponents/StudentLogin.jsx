@@ -9,7 +9,8 @@ function StudentLogin() {
     const{setStudentInfo,studentinfo}=useContext(allRecruterJobs)
   const validateUser=async(e)=>{
     e.preventDefault()
- const sendinfo=await axios.get(`http://localhost:8080/studentporatl/portal/verify-student?mail=${logindata.mailid}`)
+  
+ const sendinfo=await axios.get( import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}verify-student?mail=${logindata.mailid}`:`${import.meta.env.VITE_BACKEND_URL}verify-student?mail=${logindata.mailid}`)
  console.log(sendinfo)
  if(sendinfo.status==200)
  {

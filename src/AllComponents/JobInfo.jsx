@@ -21,6 +21,7 @@ function JobInfo() {
         e.preventDefault()
         console.log(formData)
         setAddingJob(true)
+      
         const sendinfo=await axios.post("http://localhost:8080/studentporatl/portal/post-job",formData)
         console.log(sendinfo)
         if(sendinfo.status==201)
