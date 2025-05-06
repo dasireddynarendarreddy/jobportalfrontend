@@ -22,7 +22,7 @@ function JobInfo() {
         console.log(formData)
         setAddingJob(true)
       
-        const sendinfo=await axios.post("http://localhost:8080/studentporatl/portal/post-job",formData)
+        const sendinfo=await axios.post(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}post-job`:`${import.meta.env.VITE_BACKEND_URL}post-job`,formData)
         console.log(sendinfo)
         if(sendinfo.status==201)
         {

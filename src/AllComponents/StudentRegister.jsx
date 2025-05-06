@@ -9,8 +9,8 @@ function StudentRegister() {
     e.preventDefault()
     console.log(reginfo)
     try{
-      
-    const sendinfo=await axios.post('http://localhost:8080/studentporatl/portal/savestudent',reginfo)
+
+    const sendinfo=await axios.post(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}savestudent`:`${import.meta.env.VITE_BACKEND_URL}savestudent`,reginfo)
    if(sendinfo.status==201)
    {
 
