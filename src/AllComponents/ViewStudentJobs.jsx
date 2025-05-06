@@ -24,7 +24,7 @@ function ViewStudentJobs() {
            
         }
         console.log("the info to send",infoToSend)
-        const info=await axios.post(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}apply-to-job"`:`${import.meta.env.VITE_BACKEND_URL}apply-to-job`,infoToSend);
+        const info=await axios.post(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}apply-to-job`:`${import.meta.env.VITE_BACKEND_URL}apply-to-job`,infoToSend);
        console.log(info)
        if(info.status==200)
        {
