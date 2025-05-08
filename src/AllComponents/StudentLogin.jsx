@@ -11,6 +11,7 @@ function StudentLogin() {
     const{setStudentInfo,studentinfo}=useContext(allRecruterJobs)
   const validateUser=async(e)=>{
     e.preventDefault()
+    try{
   
  const sendinfo=await axios.get( import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}verify-student?mail=${logindata.mailid}`:`${import.meta.env.VITE_BACKEND_URL}verify-student?mail=${logindata.mailid}`)
  console.log(sendinfo)
@@ -21,10 +22,13 @@ function StudentLogin() {
   
       navigate("/viewstudentjobs")
  }
- else{
-  toast.error("student not found!");
+ 
+}
+ catch(error)
+ {
+      toast.error(response.data)
  }
-    console.log(logindata)
+   
   }
   return (
     
