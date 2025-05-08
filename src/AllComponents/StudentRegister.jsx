@@ -100,7 +100,7 @@ function StudentRegister() {
     <Outlet/>
 </div>
 <div>
-      <NavLink to="student/login">Login</NavLink>
+      <NavLink to="login">Login</NavLink>
     </div>
 </div>
  
