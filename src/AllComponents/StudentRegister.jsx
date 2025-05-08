@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Outlet } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import axios from "axios"
 function StudentRegister() {
   const[reginfo,setRegInfo]=useState({name:'',age:'',mailid:'',password:''})
@@ -93,7 +94,7 @@ function StudentRegister() {
     <Outlet/>
 </div>
 <div>
-        <button onClick={studentLogin}>Login</button>
+      <NavLink to="student/login">Login</NavLink>
     </div>
 </div>
  
