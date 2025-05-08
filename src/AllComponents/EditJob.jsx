@@ -4,21 +4,39 @@ import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 function EditJob() {
      const{fetchJobsPosted,editjob,setEditJob}=useContext(allRecruterJobs)
      const[updatingjob,setUpdatingJob]=useState(false)
      const navigate=useNavigate()
      console.log(editjob)
-     const updateJob=(e)=>{
-        e.preventDefault();
+     const updateJob=async(e)=>{
 
+        e.preventDefault();
+        try{
+
+        
         setUpdatingJob(true)
-        console.log(editjob)
-        setUpdatingJob(false)
+        const edit=await axios.put(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}update-job`:`${import.meta.env.VITE_BACKEND_URL}update-job`,editjob)
+        console.log(edit)
+        if(edit.status===200)
+        {
+          setUpdatingJob(false)
+          toast.success("job was updated sucessfully!")
+          fetchJobsPosted()
+        }
+      }
+      catch(error)
+      {
+        toast.error(error.response.data)
+      }
+        
+        
+       
 
      }
   return (
-    
+    <div>
       <div>
       <form class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-xl space-y-6" onSubmit={updateJob}>
  
@@ -101,19 +119,24 @@ function EditJob() {
     <button
       type="submit"
       class={updatingjob?"w-full bg-blue-200 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition cursor-not-allowed":"w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition cursor-pointer"}
+      onClick={updateJob}
     >
       {updatingjob?"updating...":"update"}
     </button>
   </div>
 </form>
-<button
+
+    <ToastContainer/>
+    </div>
+    <div>
+    <button
       type="submit"
-      class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
+      class="w-fit bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
       onClick={()=>navigate("/addedJobs")}
     >
       <NavLink to="/addedJobs">viewalljobs</NavLink>
     </button>
-    <ToastContainer/>
+    </div>
     </div>
    
   )
