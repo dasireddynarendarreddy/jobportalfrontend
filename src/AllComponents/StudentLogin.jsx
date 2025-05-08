@@ -7,17 +7,20 @@ import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function StudentLogin() {
   const[logindata,setLoginData]=useState({mailid:'',password:''})
+  const[stdLogin,setStdLogin]=useState(false)
     const navigate=useNavigate()
     const{setStudentInfo,studentinfo}=useContext(allRecruterJobs)
   const validateUser=async(e)=>{
     e.preventDefault()
     try{
+      setStdLogin(true)
   
  const sendinfo=await axios.get( import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}verify-student?mail=${logindata.mailid}`:`${import.meta.env.VITE_BACKEND_URL}verify-student?mail=${logindata.mailid}`)
  console.log(sendinfo)
  if(sendinfo.status==200)
  {
   setStudentInfo(sendinfo.data)
+  setStdLogin(false)
   localStorage.setItem("studentinfo",JSON.stringify(sendinfo.data))
   
       navigate("/viewstudentjobs")
@@ -26,6 +29,7 @@ function StudentLogin() {
 }
  catch(error)
  {
+   setStdLogin(false)
       toast.error(error.response.data)
  }
    
@@ -68,10 +72,10 @@ function StudentLogin() {
     
     <button
       type="submit"
-      className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition"
+      className={stdLogin?"w-full bg-blue-200 text-white py-2 rounded-xl hover:bg-blue-700 transition cursor-not-allowed":"w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition"}
      
     >
-      Login
+      {stdLogin?"Verifying...":"Login"}
     </button>
     <p className="text-sm text-center text-gray-500 mt-4">
       Don't have an account? 
