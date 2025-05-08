@@ -128,7 +128,7 @@ function JobInfo() {
   <div class="pt-4">
     <button
       type="submit"
-      class={addingjob?"w-full bg-blue-200 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition cursor-not-allowed":"w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition cursor-pointer"}
+      class={addingjob?"w-fit bg-blue-200 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition cursor-not-allowed":"w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition cursor-pointer"}
     >
       {addingjob?"Addingjob":"addjob"}
     </button>
@@ -137,6 +137,7 @@ function JobInfo() {
 
     <ToastContainer/>
     </div>
+    <div>
     <button
       type="submit"
       class="w-fit bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
@@ -144,6 +145,7 @@ function JobInfo() {
     >
       <NavLink to="/addedJobs">viewalljobs</NavLink>
     </button>
+    </div>
     </div>
   )
 }
