@@ -23,7 +23,7 @@ function StudentRegister() {
   }
   }
   return (
-    
+    <div>
              <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
   <form class="w-full max-w-md bg-white shadow-md rounded-2xl p-6 space-y-4" onSubmit={studentLogin}>
     <h2 class="text-2xl font-semibold text-center text-gray-700">User Form</h2>
@@ -89,10 +89,12 @@ function StudentRegister() {
       Register
     </button>
   </form>
-    <div>
+    
+    <Outlet/>
+</div>
+<div>
         <button onClick={studentLogin}>Login</button>
     </div>
-    <Outlet/>
 </div>
  
       

@@ -48,7 +48,7 @@ function ViewStudentJobs() {
          {
           toast.success("Sucessfully withdrawn the śjob:)")
          }
-       fetchAppliedJobs()
+         fetchAppliedJobs()
       }
         
     }
