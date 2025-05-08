@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Outlet } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
 function StudentRegister() {
   const[reginfo,setRegInfo]=useState({name:'',age:'',mailid:'',password:''})
@@ -17,6 +19,9 @@ function StudentRegister() {
 
     navigate("/student/login")
    }
+   else{
+     toast.error("student not found")
+   }
   }
   catch(error)
   {
@@ -25,6 +30,7 @@ function StudentRegister() {
   }
   return (
     <div>
+      <ToastContainer/>
              <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
   <form class="w-full max-w-md bg-white shadow-md rounded-2xl p-6 space-y-4" onSubmit={studentLogin}>
     <h2 class="text-2xl font-semibold text-center text-gray-700">User Form</h2>
