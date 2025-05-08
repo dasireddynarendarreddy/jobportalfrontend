@@ -26,7 +26,7 @@ function StudentLogin() {
 }
  catch(error)
  {
-      toast.error(response.data)
+      toast.error(error.response.data)
  }
    
   }
