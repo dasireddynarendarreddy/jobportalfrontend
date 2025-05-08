@@ -54,8 +54,8 @@ const AppliedMembers = () => {
                     <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm" onClick={()=>updateStatus(member,"reject")}>
                       Reject
                     </button>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm">
-                      Message
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm" onClick={()=>updateStatus(member,"interview")}>
+                      Interview
                     </button>
                   </div>
                 </td>
