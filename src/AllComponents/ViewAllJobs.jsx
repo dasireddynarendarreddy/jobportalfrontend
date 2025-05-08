@@ -62,8 +62,7 @@ function ViewAllJobs() {
           
                 <div className="flex justify-between items-center mt-4 text-xs text-gray-500">
                   <p>Posted By: {job.postedBy}</p>
-                  <p>{job.appliedMembers.length
-                  } <NavLink to={`/appliedmembers/${job.id}`}>Applied</NavLink></p>
+                  <p>{job.appliedMembers.length>0?<NavLink to={`/appliedmembers/${job.id}`}>{job.appliedMembers.length}Applied</NavLink>:""}</p>
                 </div>
                     <div className='flex'>
                       <div>
