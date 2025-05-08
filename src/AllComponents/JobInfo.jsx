@@ -47,6 +47,7 @@ function JobInfo() {
       
   return (
     <div>
+    <div>
       <form class="max-w-xl mx-auto p-6 bg-white shadow-lg rounded-xl space-y-6" onSubmit={addJob}>
  
   <div>
@@ -133,14 +134,16 @@ function JobInfo() {
     </button>
   </div>
 </form>
-<button
+
+    <ToastContainer/>
+    </div>
+    <button
       type="submit"
       class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
       onClick={()=>navigate("/addedJobs")}
     >
       <NavLink to="/addedJobs">viewalljobs</NavLink>
     </button>
-    <ToastContainer/>
     </div>
   )
 }
