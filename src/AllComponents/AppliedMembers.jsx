@@ -21,7 +21,7 @@ const AppliedMembers = () => {
     console.log(data,stat)
     console.log(id,student_id)
     
-    const update=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}student/update-status`:`${import.meta.env.VITE_BACKEND_URL}student/update-status`,{id,student_id,status:stat})
+    const update=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}update-status`:`${import.meta.env.VITE_BACKEND_URL}update-status`,{id,student_id,status:stat})
     console.log(update.data)
     
   }
