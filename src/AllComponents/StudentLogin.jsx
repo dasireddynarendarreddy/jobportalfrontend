@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { allRecruterJobs } from '../Context/RecruterContext'
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function StudentLogin() {
   const[logindata,setLoginData]=useState({mailid:'',password:''})
     const navigate=useNavigate()
@@ -19,11 +21,15 @@ function StudentLogin() {
   
       navigate("/viewstudentjobs")
  }
+ else{
+  toast.error("student not found!");
+ }
     console.log(logindata)
   }
   return (
     
       <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        <ToastContainer/>
   <form className="w-full max-w-sm bg-white shadow-md rounded-2xl p-6 space-y-4" onSubmit={validateUser}>
     <h2 className="text-2xl font-semibold text-center text-gray-700">Login</h2>
 
