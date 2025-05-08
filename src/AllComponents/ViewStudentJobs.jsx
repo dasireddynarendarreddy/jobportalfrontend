@@ -1,12 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { allRecruterJobs } from '../Context/RecruterContext'
 import axios from 'axios'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 function ViewStudentJobs() {
     const{jobsposted,studentinfo,fetchAppliedJobs}=useContext(allRecruterJobs)
+    
     const ApplyToJob=async(job)=>{
        
       if(job.mode==='apply')
+        
       {
+       
         
         const infoToSend={
             student_mailid:studentinfo.mailid?studentinfo.mailid:JSON.parse(localStorage.getItem("studentinfo")).mailid, 
@@ -28,22 +33,28 @@ function ViewStudentJobs() {
        console.log(info)
        if(info.status==200)
        {
+         toast.success("Sucessfully applied for job:)")
         fetchAppliedJobs()
        }
        console.log(job)
       }
       else{
         console.log("with draw mode",job)
+        
         let mailid=studentinfo.mailid?studentinfo.mailid:JSON.parse(localStorage.getItem("studentinfo")).mailid
      
         const info=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}with-draw-application/${mailid}/${job.id}`:`${import.meta.env.VITE_BACKEND_URL}with-draw-application/${mailid}/${job.id}`)
-        console.log(info)
+         if(info.status===200)
+         {
+          toast.success("Sucessfully withdrawn the śjob:)")
+         }
        fetchAppliedJobs()
       }
         
     }
   return (
     <div>
+      <ToastContainer/>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
   {jobsposted.map((job, index) => (
     <div key={index} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-6 flex flex-col justify-between">
