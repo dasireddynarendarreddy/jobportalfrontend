@@ -55,7 +55,10 @@ function ViewStudentJobs() {
   return (
     <div>
       <ToastContainer/>
+      <div className="text-2xl md:text-4xl font-bold text-center text-white bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 p-4 rounded-xl shadow-lg">🎉 Welcome, <span className="text-yellow-300">{studentinfo.name}</span>!</div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+
   {jobsposted.map((job, index) => (
     <div key={index} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-6 flex flex-col justify-between">
       <div>
