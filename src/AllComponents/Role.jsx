@@ -12,11 +12,6 @@ const Role = () => {
     const navToAdmin = () => {
         navigate("/admin");
     };
-    useEffect(() => {
-      fetch("https://jobportal-mgwm.onrender.com/studentporatl")
-        .then(response => console.log("Server is awake"))
-        .catch(error => console.error("Failed to wake server", error));
-    }, []);
     
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-6">
