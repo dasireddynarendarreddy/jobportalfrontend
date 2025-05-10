@@ -62,6 +62,12 @@ function App() {
     {
       fetchAppliedJobs();
     }
+    useEffect(() => {
+      fetch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}`:`${import.meta.env.VITE_BACKEND_URL}`)
+        .then(response => console.log("Server is awake"+response))
+        .catch(error => console.error("Failed to wake server", error));
+    }, []);
+    
 
   },[])
 
