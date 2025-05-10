@@ -59,7 +59,7 @@ function ViewStudentJobs() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
 
-  {!jobsposted.length===0?jobsposted.map((job, index) => (
+  {!(jobsposted.length===0)?jobsposted.map((job, index) => (
     <div key={index} className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-6 flex flex-col justify-between">
       <div>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">{job.jobtitle}</h2>
