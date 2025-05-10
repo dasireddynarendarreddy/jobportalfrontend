@@ -23,13 +23,13 @@ const Role = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <button 
                     onClick={navToStudent}
-                    className="bg-white text-indigo-600 hover:bg-indigo-100 font-semibold py-4 px-8 rounded-xl transition duration-300"
+                    className="bg-white text-indigo-600 hover:bg-indigo-100 font-semibold py-4 px-8 rounded-xl transition duration-300 cursor-pointer"
                 >
                     Student
                 </button>
                 <button 
                     onClick={navToAdmin}
-                    className="bg-white text-purple-600 hover:bg-purple-100 font-semibold py-4 px-8 rounded-xl transition duration-300"
+                    className="bg-white text-purple-600 hover:bg-purple-100 font-semibold py-4 px-8 rounded-xl transition duration-300 cursor-pointer"
                 >
                     Recruiter
                 </button>
