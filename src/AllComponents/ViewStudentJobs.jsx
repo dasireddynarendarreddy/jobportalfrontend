@@ -46,7 +46,7 @@ function ViewStudentJobs() {
         const info=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}with-draw-application/${mailid}/${job.id}`:`${import.meta.env.VITE_BACKEND_URL}with-draw-application/${mailid}/${job.id}`)
          if(info.status===200)
          {
-          toast.success("Sucessfully withdrawn the śjob:)")
+          toast.success("Sucessfully withdrawn the job:)")
          }
          fetchAppliedJobs()
       }

@@ -89,13 +89,15 @@ function AdminRegister() {
       Register
     </button>
   </form>
+  </div>
   <div>
-    <button onClick={AdminLogin}>Login</button>
+
+    <button onClick={AdminLogin} className='cursor-pointer'>Login</button>
   </div>
 </div>
 
       
-    </div>
+  
   )
 }
 
