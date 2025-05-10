@@ -63,10 +63,26 @@ function App() {
       fetchAppliedJobs();
     }
    
-      fetch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}`:`${import.meta.env.VITE_BACKEND_URL}`)
-        .then(response => console.log("Server is awake"+response))
-        .catch(error => console.error("Failed to wake server", error));
+      
+    const wakeUpServer = async () => {
+      const url = import.meta.env.MODE === "production"
+        ? import.meta.env.VITE_BACKEND_URL_PROD
+        : import.meta.env.VITE_BACKEND_URL;
   
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          console.log("Server is awake", response.status);
+        } else {
+          console.error("Server responded with error", response.status);
+        }
+      } catch (error) {
+        console.error("Failed to wake server", error);
+      }
+    };
+  
+    // Call the async function
+    wakeUpServer();
     
 
   },[])
