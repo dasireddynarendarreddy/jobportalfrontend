@@ -13,7 +13,7 @@ const Role = () => {
         navigate("/admin");
     };
     useEffect(() => {
-      fetch("https://jobportal-mgwm.onrender.com/")
+      fetch("https://jobportal-mgwm.onrender.com")
         .then(response => console.log("Server is awake"))
         .catch(error => console.error("Failed to wake server", error));
     }, []);
