@@ -21,7 +21,8 @@ function JobInfo() {
         e.preventDefault()
         console.log(formData)
         setAddingJob(true)
-      
+
+      try{
         const sendinfo=await axios.post(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}post-job`:`${import.meta.env.VITE_BACKEND_URL}post-job`,formData)
         console.log(sendinfo)
         if(sendinfo.status==201)
@@ -39,6 +40,11 @@ function JobInfo() {
         postedOn:new Date().toDateString()
           })
         }
+      }
+      catch(error)
+      {
+        console.log(error.reponse.data)
+      }
         
 
       }
