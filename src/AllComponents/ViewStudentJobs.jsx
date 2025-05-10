@@ -92,7 +92,7 @@ function ViewStudentJobs() {
         {studentinfo.appliedjobs.some(jobItem => jobItem.jobid === job.id)?"Withdraw":"Apply"}
       </button>
     </div>
-  )):<h2>No jobs uploaded by Recruter</h2>}
+  )):<h2>No jobs uploaded by Recruiter Vist Again to Apply</h2>}
 </div>
 
     </div>
