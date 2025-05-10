@@ -5,7 +5,7 @@ const Role = () => {
     const navigate = useNavigate();
 
     const navToStudent = () => {
-        navigate("/student");
+        navigate("/student")
     };
 
     const navToAdmin = () => {
