@@ -27,7 +27,7 @@ const AppliedMembers = () => {
     console.log(update.status)
     if(update.status===200)
     {
-        toast.success("student was shortlisted!")
+        toast.success("application status was updated!")
     }
     console.log(update.data)
     
