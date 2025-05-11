@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { allRecruterJobs } from "../Context/RecruterContext";
 import axios from 'axios'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 const AppliedMembers = () => {
   const { id } = useParams();
   const { jobsposted } = useContext(allRecruterJobs);
@@ -22,6 +24,10 @@ const AppliedMembers = () => {
     console.log(id,student_id)
     
     const update=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}update-status`:`${import.meta.env.VITE_BACKEND_URL}update-status`,{id,student_id,status:stat})
+    if(update.status===200)
+    {
+        toast.success("student was shortlisted!")
+    }
     console.log(update.data)
     
   }
