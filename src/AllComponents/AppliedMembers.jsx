@@ -35,6 +35,7 @@ const AppliedMembers = () => {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+      <ToastContainer/>
       <h1 className="text-2xl font-bold mb-6 text-center text-blue-700">
         Applied Members for Job ID: {id}
       </h1>
