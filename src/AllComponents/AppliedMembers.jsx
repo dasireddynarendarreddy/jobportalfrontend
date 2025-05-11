@@ -24,6 +24,7 @@ const AppliedMembers = () => {
     console.log(id,student_id)
     
     const update=await axios.patch(import.meta.env.MODE==="production"?`${import.meta.env.VITE_BACKEND_URL_PROD}update-status`:`${import.meta.env.VITE_BACKEND_URL}update-status`,{id,student_id,status:stat})
+    console.log(update.status)
     if(update.status===200)
     {
         toast.success("student was shortlisted!")
